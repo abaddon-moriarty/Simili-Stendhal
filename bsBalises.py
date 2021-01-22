@@ -1,10 +1,8 @@
 import bs4 as bs
 import urllib.request
 
-
-def identification(fileHandle):
-	sauce = urllib.request.urlopen(fileHandle).read()
-	soup = bs.BeautifulSoup(sauce, 'lxml')
+def identification(sauce):
+	soup = bs.BeautifulSoup(open(sauce), 'lxml')
 
 	################### RECUPERER IDENTIFICATION #################
 	statement = {'cote': '', 
@@ -47,5 +45,8 @@ def identification(fileHandle):
 			statement['titre'] = line.text
 	return statement
 
-identite = identification("http://stendhal.demarre-shs.fr/catalogue_TEI/5896-21-019.tei.xml")
-print(identite)
+identite = identification("C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\export\\Stendhal0.xml")
+
+
+print(identite['text'])
+
