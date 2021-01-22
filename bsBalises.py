@@ -1,8 +1,13 @@
+# coding: utf8
+
+
 import bs4 as bs
 import urllib.request
+import os
 
 def identification(sauce):
-	soup = bs.BeautifulSoup(open(sauce), 'lxml')
+	soup = bs.BeautifulSoup(open(sauce), 'lxml', from_encoding="ISO-8859-1"
+		)
 
 	################### RECUPERER IDENTIFICATION #################
 	statement = {'cote': '', 
@@ -45,8 +50,19 @@ def identification(sauce):
 			statement['titre'] = line.text
 	return statement
 
-identite = identification("C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\export\\Stendhal0.xml")
+
+#récupère tous les document ".xml" dans le dossier
+############ changer le handle pour adapter à l'ordinateur ###########
+handle = "C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\export"
+fileList = []
+
+# r=>root, d=>directories, f=>files
+for r, d, f, in os.walk(handle):
+	for item in f:
+		if '.xml' in item:
+			fileList.append(os.path.join(r, item))
 
 
-print(identite['text'])
+for item in fileList:
+	info = identification(item)
 
