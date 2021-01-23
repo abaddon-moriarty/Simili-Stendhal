@@ -5,9 +5,9 @@ import bs4 as bs
 import urllib.request
 import os
 
-def identification(sauce):
-	soup = bs.BeautifulSoup(open(sauce), 'lxml', from_encoding="ISO-8859-1"
-		)
+def identification(fileName):
+	sauce = open(fileName, encoding='utf-8')
+	soup = bs.BeautifulSoup(sauce, 'lxml', from_encoding="utf-8")
 
 	################### RECUPERER IDENTIFICATION #################
 	statement = {'cote': '', 
@@ -33,7 +33,7 @@ def identification(sauce):
 	lien = soup.ref
 	permalien = lien.get('target')
 
-	#vérification au cas où il y ait plusieurs liens
+	#vérification au cas où il y ait plusieurs lie ns
 	handle = "http://manuscrits-de-stendhal.org/permalien.php"
 	if handle in permalien:
 		statement['lien'] = permalien
@@ -65,4 +65,8 @@ for r, d, f, in os.walk(handle):
 
 for item in fileList:
 	info = identification(item)
+
+for i in range(0, 200):
+	print(info)
+	print("\n\n")
 
