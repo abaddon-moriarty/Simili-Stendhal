@@ -71,7 +71,14 @@ def identification(fileName):
 
 #fonction qui met à jour la base de donnée avec les informations récupérées par beautiful soup
 def update(statement):  
-	mycursor.execute(""" INSERT INTO textes(cote, nb_ordre, volume, page, titre, permalien, texte) VALUES (statement['cote'], statement['ordre'], statement['volume'], statement['page'], statement['titre'], statement['lien'], statement['text']);
+	cote = statement['cote']
+	ordre = statement['ordre']
+	volume = statement['volume']
+	page = statement['page']
+	titre = statement['titre']
+	lien = statement['lien']
+	texte = statement['text']
+	mycursor.execute(""" INSERT INTO textes(cote, nb_ordre, volume, page, titre, permalien, texte) VALUES (cote, ordre, volume, page, titre, lien, texte);
 	""")
 
 	conn.commit()
