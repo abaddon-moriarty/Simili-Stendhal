@@ -46,14 +46,14 @@ def create(conn, mycursor): #fonction qui créé la base de donnée et la table 
 			# print('all is right in the coding world again')
 			return True
 		else: 
-			# print('AAAAAH COME ON /§§§§§§§§§§§§§§§§')
+			# print('AAAAAH COME ON /§§§§§§§§§§§§§§§§v DYTYUYFRSJYUFRTSSRTFGHYUI')
 			return False
 
 
 	else: # si la table n'existe pas alors on la créé
 		# print('table does not exists')
 		mycursor.execute("""CREATE TABLE textes 
-			(id int NOT NULL AUTO_INCREMENT, 
+			(id int PRIMARY KEY NOT NULL AUTO_INCREMENT, 
 			nomxml varchar(255),
 			cote varchar(255),
 			nb_ordre varchar(255),
@@ -69,17 +69,31 @@ def create(conn, mycursor): #fonction qui créé la base de donnée et la table 
 
 #Fonction qui ajoute un backslash avant chaque apostrophe ou guillemet pour aider à l'upload
 def backslashs(texte):
-
-	'''compte le nombre d'occurence d'appostrophes et de guillemet, pour ajouter à la longeur de la boucle
-	autrement la boucle s'arrête avant la fin réelle du texte auquel on aura ajouté des \''''
+	print(texte)
 	a = texte.count("'")
 	b = texte.count('"')
-	longeur = len(texte) + a + b
-	for i in range(0, longeur):
-		if texte[i] == "'" or texte[i] == '"':
-			j = i-1
-			if texte[j] != "\\":
-				texte = texte[:i] + "\\" + texte[i:]
+	c = a + b
+	sub = texte[-c:]
+
+	if "'" in sub or '"' in sub:
+		print(sub, "il y a un truc")
+		'''compte le nombre d'occurence d'appostrophes et de guillemet, pour ajouter à la longeur de la boucle
+		autrement la boucle s'arrête avant la fin réelle du texte auquel on aura ajouté des \''''
+		a = texte.count("'")
+		b = texte.count('"')
+		longeur = len(texte) + a + b
+		for i in range(0, longeur):
+			if texte[i] == "'" or texte[i] == '"':
+				j = i-1
+				if texte[j] != "\\":
+					texte = texte[:i] + "\\" + texte[i:]
+	else:
+		print("il n'y a rien")
+		for i in range(0, len(texte)):
+			if texte[i] == "'" or texte[i] == '"':
+				j = i-1
+				if texte[j] != "\\":
+					texte = texte[:i] + "\\" + texte[i:]
 	return texte
 
 
@@ -128,6 +142,7 @@ def identification(fileName):
 		#permet d'enlever toutes les tabulations retours à la ligne et espace inutiles.
 		statement['texte'] = statement['texte'].replace('\n', '')
 		statement['texte'] = statement['texte'].replace('\t', '')
+		statement['texte'] = statement['texte'].replace('#', '')
 		while "  " in statement['texte']:
 			statement['texte'] = statement['texte'].replace("  ", " ")
 		statement['texte'] = backslashs(statement['texte'])
@@ -158,6 +173,7 @@ def parcoursXml(handle):
 	# boucle qui parcours la liste des fichier, leur applique la fonction identification à fileList et upload les informations à la base de donnée
 	for name in fileList:
 		temp = identification(name)
+		print(temp['texte'], '\n')
 		xml = name[name.rindex('Stendhal'): name.index('.xml')+4]
 		temp['nomxml'] = xml
 		uploadBdd(temp)
@@ -197,14 +213,25 @@ if aOk is True :
 
 #récupère tous les document ".xml" dans le dossier
 ############ changer le handle pour adapter à l'ordinateur ###########
-	handle = "C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\export"#\\Stendhal2211.xml"
-	parcoursXml(handle)
+	handle = "C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\export\\Stendhal1225.xml"
+	# parcoursXml(handle)
+	prob = identification(handle)
+	# print(prob['texte'])
+	# print(prob):
+	# # prob['texte'] = backslashs(prob['texte'])
+	# print(prob['texte'])
+
 else:
 	print("nope")
-# prob = identification(handle)
-# print(prob)
 
 
+
+
+
+#comtper le nombre de " et ' 
+#récupérer la substring de cette longeur
+#si " ou ' dans la substring alors on fait un ajout s
+#sinon non
 
 
 #fonction qui récupère les textes par query
