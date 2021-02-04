@@ -68,15 +68,17 @@ def create(conn, mycursor): #fonction qui créé la base de donnée et la table 
 
 
 #Fonction qui ajoute un backslash avant chaque apostrophe ou guillemet pour aider à l'upload
-def backslashs(texte):
-	print(texte)
+#boolTitre est un boolean, s'il ce qui passe dans la fonction est un titre ou un le texte
+def backslashs(texte, boolTitre):
 	a = texte.count("'")
 	b = texte.count('"')
 	c = a + b
 	sub = texte[-c:]
 
-	if "'" in sub or '"' in sub:
-		print(sub, "il y a un truc")
+
+	#vérifie s'il y a un appostrophe ou un guillemet que si c'est le texte
+	if "'" in sub or '"' in sub and not boolTitre:
+		# print(sub, '\n', "il y a un truc")
 		'''compte le nombre d'occurence d'appostrophes et de guillemet, pour ajouter à la longeur de la boucle
 		autrement la boucle s'arrête avant la fin réelle du texte auquel on aura ajouté des \''''
 		a = texte.count("'")
@@ -87,8 +89,9 @@ def backslashs(texte):
 				j = i-1
 				if texte[j] != "\\":
 					texte = texte[:i] + "\\" + texte[i:]
-	else:
-		print("il n'y a rien")
+		# print(texte)
+	elif "'" not in sub or '"' not in sub:
+		# print("il n'y a rien")
 		for i in range(0, len(texte)):
 			if texte[i] == "'" or texte[i] == '"':
 				j = i-1
@@ -143,9 +146,12 @@ def identification(fileName):
 		statement['texte'] = statement['texte'].replace('\n', '')
 		statement['texte'] = statement['texte'].replace('\t', '')
 		statement['texte'] = statement['texte'].replace('#', '')
+		# print(statement['texte'])
 		while "  " in statement['texte']:
 			statement['texte'] = statement['texte'].replace("  ", " ")
-		statement['texte'] = backslashs(statement['texte'])
+	statement['texte'] = backslashs(statement['texte'], False)
+	# for item in statement['texte']:
+		# print(item, '\n')
 
 	for line in soup.find_all('textdesc'):
 		if line.get('n') == 'corpus':
@@ -155,7 +161,7 @@ def identification(fileName):
 	for line in soup.find_all('textdesc'):
 		if line.get('n') == 'document':
 			statement['titre'] += line.text
-	statement['titre'] = backslashs(statement['titre'])
+	statement['titre'] = backslashs(statement['titre'], True)
 	return statement
 
 
@@ -173,7 +179,7 @@ def parcoursXml(handle):
 	# boucle qui parcours la liste des fichier, leur applique la fonction identification à fileList et upload les informations à la base de donnée
 	for name in fileList:
 		temp = identification(name)
-		print(temp['texte'], '\n')
+		# print(temp['texte'], '\n')
 		xml = name[name.rindex('Stendhal'): name.index('.xml')+4]
 		temp['nomxml'] = xml
 		uploadBdd(temp)
@@ -213,9 +219,9 @@ if aOk is True :
 
 #récupère tous les document ".xml" dans le dossier
 ############ changer le handle pour adapter à l'ordinateur ###########
-	handle = "C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\export\\Stendhal1225.xml"
-	# parcoursXml(handle)
-	prob = identification(handle)
+	handle = "C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\export"#\\Stendhal1225.xml"
+	parcoursXml(handle)
+	# prob = identification(handle)
 	# print(prob['texte'])
 	# print(prob):
 	# # prob['texte'] = backslashs(prob['texte'])
