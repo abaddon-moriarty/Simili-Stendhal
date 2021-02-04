@@ -9,15 +9,63 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import re
 
-
-## connection à la base de donnée pour uploader les données
-conn = mysql.connector.connect(
+def connection(username, password, database):
+	conn = mysql.connector.connect(
 	host = "localhost",
-	user = "root",
-	password = "",
-	database = "simili_stendhal")
+	user = username,
+	password = password,
+	database = database
+	)
+	mycursor = conn.cursor()
 
-mycursor = conn.cursor()
+	return conn, mycursor
+
+#changer ici les données de connection
+#username, password, databasename
+conn, mycursor = connection("root", "", "")
+
+def create(conn, mycursor): #fonction qui créé la base de donnée et la table si elles n'existent pas
+	mycursor.execute("CREATE DATABASE IF NOT EXISTS simili_stendhal")
+	# met à jour la connection en ajoutant le nom de la database
+	conn, mycursor = connection("root", "", "simili_stendhal")
+
+	#vérifie la liste des tables
+	mycursor.execute("SHOW TABLES")
+	exx = mycursor.fetchall()
+	if ('textes',) in exx:
+		# Si la table textes existe il récupère le nom des colonnes
+		mycursor.execute("SELECT * from textes")
+		exx = mycursor.fetchall()
+		num_fields = len(mycursor.description)
+		field_names = [i[0] for i in mycursor.description]
+
+		# on la compare à la liste des colonnes que l'on utilise pour éviter toute erreur
+		listeCol = ['id', 'nomxml', 'cote', 'nb_ordre', 'page', 'volume', 'type', 'titre', 'permalien', 'texte']
+
+		if listeCol == field_names:
+			# print('all is right in the coding world again')
+			return True
+		else: 
+			# print('AAAAAH COME ON /§§§§§§§§§§§§§§§§')
+			return False
+
+
+	else: # si la table n'existe pas alors on la créé
+		# print('table does not exists')
+		mycursor.execute("""CREATE TABLE textes 
+			(id int NOT NULL AUTO_INCREMENT, 
+			nomxml varchar(255),
+			cote varchar(255),
+			nb_ordre varchar(255),
+			page varchar(255),
+			volume varchar(255),
+			type varchar(255),
+			titre varchar(255),
+			permalien varchar(255),
+			texte text)""")
+		return True
+
+
 
 #Fonction qui ajoute un backslash avant chaque apostrophe ou guillemet pour aider à l'upload
 def backslashs(texte):
@@ -97,7 +145,6 @@ def identification(fileName):
 
 
 
-
 #parcours chaque fichier xml de la dir et applique la fonction identification()
 def parcoursXml(handle):
 	fileList = []
@@ -131,7 +178,7 @@ def uploadBdd(statement):
 
 
 
-# fonction qui vérifie que l'etrée ne fasse pas déjà partie de la base de donnée
+# fonction qui vérifie que l'eNtrée ne fasse pas déjà partie de la base de donnée
 # def verifDoublons(statement):
 # 	sql = "SELECT * FROM `textes` WHERE `cote` = %s AND `nb_ordre` = %s AND `volume` = %s AND `type` = %s AND `page` = %s AND `titre` = %s AND `texte` = %s;" % (statement['cote'], statement['nb_ordre'], statement['page'], statement['volume'], statement['type'], statement['titre'], statement['texte'])
 # 	mycursor.execute(sql)
@@ -144,14 +191,25 @@ def uploadBdd(statement):
 
 
 
+aOk = create(conn, mycursor)
 
+if aOk is True :
 
 #récupère tous les document ".xml" dans le dossier
 ############ changer le handle pour adapter à l'ordinateur ###########
-handle = "C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\try"#\\Stendhal2211.xml"
-parcoursXml(handle)
+	handle = "C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\export"#\\Stendhal2211.xml"
+	parcoursXml(handle)
+else:
+	print("nope")
 # prob = identification(handle)
 # print(prob)
+
+
+
+
+#fonction qui récupère les textes par query
+# def queryText():
+# query
 
 # <>
 
