@@ -1,6 +1,8 @@
 import mysql.connector
 import spacy
+import time
 
+start_time = time.time()
 """
 *******************************************************************************************************
 Cette fonction va calculer le poids du lien qui lie deux fichiers en fonction de la proximité des mots 
@@ -43,6 +45,7 @@ def poids(handle1, handle2):
                 # On a donc une liste tabT1 des tokens du texte sans les mots grammaticaux.
                 tabT1.append(tok.text)
 
+
         #print(tabT1)
 
     # On fait pareil pour le deuxième texte
@@ -64,7 +67,6 @@ def poids(handle1, handle2):
         for tok in doc:
             tabT2.append(tok.text)
 
-        print(tabT2)
 
     # On initialise la variable de poids.
     p = 0
@@ -101,5 +103,21 @@ def poids(handle1, handle2):
 
     return p
 
-p = poids("Stendhal0.txt", "Stendhal50.txt")
-print("le poids du lien est de", p)
+
+tabPair = []
+# On applique la fonction à chaque pair de fichier et on
+# stock les résultats dans un fichier csv à la forme (fichier1, fichier2, poids)
+with open("recapitulatifPoids.csv", "w") as f:
+    # changer les ranges en fonction du nombre de fichier
+    for i in range(0, 20):
+        for j in range(0, 20):
+            # Condition pour ne pas calculer les doublons et donc gagner du temps de traitement
+            if i != j and (str(i)+str(j) not in tabPair or str(j)+str(i) not in tabPair):
+                p = poids("Stendhal"+str(i)+".txt", "Stendhal"+str(j)+".txt")
+                f.write("Stendhal"+str(i)+",Stendhal"+str(j)+","+str(p)+"\n")
+                print(i, j)
+
+            tabPair.append(str(i) + str(j))
+            tabPair.append(str(j) + str(i))
+
+print("--- %s seconds ---" % (time.time() - start_time))
