@@ -1,0 +1,976 @@
+{
+  "nodes": [
+    { "id": "Stendhal0" },
+    { "id": "Stendhal1" },
+    { "id": "Stendhal2" },
+    { "id": "Stendhal3" },
+    { "id": "Stendhal4" },
+    { "id": "Stendhal5" },
+    { "id": "Stendhal6" },
+    { "id": "Stendhal7" },
+    { "id": "Stendhal8" },
+    { "id": "Stendhal9" },
+    { "id": "Stendhal10" },
+    { "id": "Stendhal11" },
+    { "id": "Stendhal12" },
+    { "id": "Stendhal13" },
+    { "id": "Stendhal14" },
+    { "id": "Stendhal15" },
+    { "id": "Stendhal16" },
+    { "id": "Stendhal17" },
+    { "id": "Stendhal18" },
+    { "id": "Stendhal19" }
+  ],
+  "links": [
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal1",
+      "weight": 9546586
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal2",
+      "weight": 13833414
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal3",
+      "weight": 1381815
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal4",
+      "weight": 1834080
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal5",
+      "weight": 10643052
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal6",
+      "weight": 6753965
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal7",
+      "weight": 31584252
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal8",
+      "weight": 16585927
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal9",
+      "weight": 3105550
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal10",
+      "weight": 12694273
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal11",
+      "weight": 6680746
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal12",
+      "weight": 6274870
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal13",
+      "weight": 9051271
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal14",
+      "weight": 19287885
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal15",
+      "weight": 14229118
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal16",
+      "weight": 15909011
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal17",
+      "weight": 4998414
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal18",
+      "weight": 492963
+    },
+    {
+      "source": "Stendhal0",
+      "target": "Stendhal19",
+      "weight": 36613267
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal2",
+      "weight": 15493599
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal3",
+      "weight": 1175736
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal4",
+      "weight": 1400204
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal5",
+      "weight": 14277875
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal6",
+      "weight": 5696432
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal7",
+      "weight": 23583894
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal8",
+      "weight": 14188046
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal9",
+      "weight": 2540442
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal10",
+      "weight": 9601450
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal11",
+      "weight": 4740842
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal12",
+      "weight": 4863908
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal13",
+      "weight": 6931048
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal14",
+      "weight": 13396980
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal15",
+      "weight": 9867726
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal16",
+      "weight": 13389514
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal17",
+      "weight": 3557270
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal18",
+      "weight": 397739
+    },
+    {
+      "source": "Stendhal1",
+      "target": "Stendhal19",
+      "weight": 32414437
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal3",
+      "weight": 1673646
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal4",
+      "weight": 2119713
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal5",
+      "weight": 16059018
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal6",
+      "weight": 10157541
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal7",
+      "weight": 32598156
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal8",
+      "weight": 21786818
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal9",
+      "weight": 3964561
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal10",
+      "weight": 16626501
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal11",
+      "weight": 7129330
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal12",
+      "weight": 6918506
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal13",
+      "weight": 9852501
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal14",
+      "weight": 20527094
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal15",
+      "weight": 20300093
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal16",
+      "weight": 19400470
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal17",
+      "weight": 5790374
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal18",
+      "weight": 384317
+    },
+    {
+      "source": "Stendhal2",
+      "target": "Stendhal19",
+      "weight": 55231816
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal4",
+      "weight": 1043169
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal5",
+      "weight": 1685890
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal6",
+      "weight": 1569544
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal7",
+      "weight": 3670858
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal8",
+      "weight": 2659652
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal9",
+      "weight": 1217981
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal10",
+      "weight": 1854285
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal11",
+      "weight": 1278825
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal12",
+      "weight": 1366107
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal13",
+      "weight": 1574372
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal14",
+      "weight": 1243299
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal15",
+      "weight": 914314
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal16",
+      "weight": 1746481
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal17",
+      "weight": 346539
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal18",
+      "weight": 53691
+    },
+    {
+      "source": "Stendhal3",
+      "target": "Stendhal19",
+      "weight": 3713985
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal5",
+      "weight": 2340193
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal6",
+      "weight": 1789949
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal7",
+      "weight": 5004121
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal8",
+      "weight": 3555740
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal9",
+      "weight": 1316375
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal10",
+      "weight": 2726096
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal11",
+      "weight": 1833024
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal12",
+      "weight": 1602507
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal13",
+      "weight": 2123072
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal14",
+      "weight": 2199448
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal15",
+      "weight": 2426157
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal16",
+      "weight": 1660788
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal17",
+      "weight": 841622
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal18",
+      "weight": 19306
+    },
+    {
+      "source": "Stendhal4",
+      "target": "Stendhal19",
+      "weight": 5763799
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal6",
+      "weight": 8335293
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal7",
+      "weight": 27220055
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal8",
+      "weight": 16617778
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal9",
+      "weight": 3147695
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal10",
+      "weight": 16875284
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal11",
+      "weight": 8812248
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal12",
+      "weight": 8997883
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal13",
+      "weight": 12958174
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal14",
+      "weight": 17319955
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal15",
+      "weight": 18447003
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal16",
+      "weight": 10152466
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal17",
+      "weight": 6323745
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal18",
+      "weight": 249513
+    },
+    {
+      "source": "Stendhal5",
+      "target": "Stendhal19",
+      "weight": 41854658
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal7",
+      "weight": 19090369
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal8",
+      "weight": 10081485
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal9",
+      "weight": 3121413
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal10",
+      "weight": 7717018
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal11",
+      "weight": 4651930
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal12",
+      "weight": 4139401
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal13",
+      "weight": 6563913
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal14",
+      "weight": 7839764
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal15",
+      "weight": 8666724
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal16",
+      "weight": 7670106
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal17",
+      "weight": 2385156
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal18",
+      "weight": 29783
+    },
+    {
+      "source": "Stendhal6",
+      "target": "Stendhal19",
+      "weight": 21819925
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal8",
+      "weight": 38712541
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal9",
+      "weight": 8335871
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal10",
+      "weight": 30958176
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal11",
+      "weight": 16211454
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal12",
+      "weight": 13793004
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal13",
+      "weight": 48030913
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal14",
+      "weight": 34956706
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal15",
+      "weight": 79636824
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal16",
+      "weight": 31384485
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal17",
+      "weight": 14332855
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal18",
+      "weight": 564682
+    },
+    {
+      "source": "Stendhal7",
+      "target": "Stendhal19",
+      "weight": 93803705
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal9",
+      "weight": 4949539
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal10",
+      "weight": 17186326
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal11",
+      "weight": 9135705
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal12",
+      "weight": 9249406
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal13",
+      "weight": 13055318
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal14",
+      "weight": 20213340
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal15",
+      "weight": 17709990
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal16",
+      "weight": 22053038
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal17",
+      "weight": 6033937
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal18",
+      "weight": 349477
+    },
+    {
+      "source": "Stendhal8",
+      "target": "Stendhal19",
+      "weight": 57592631
+    },
+    {
+      "source": "Stendhal9",
+      "target": "Stendhal10",
+      "weight": 3779129
+    },
+    {
+      "source": "Stendhal9",
+      "target": "Stendhal11",
+      "weight": 3665590
+    },
+    {
+      "source": "Stendhal9",
+      "target": "Stendhal12",
+      "weight": 2188546
+    },
+    {
+      "source": "Stendhal9",
+      "target": "Stendhal13",
+      "weight": 2858667
+    },
+    {
+      "source": "Stendhal9",
+      "target": "Stendhal14",
+      "weight": 3698278
+    },
+    {
+      "source": "Stendhal9",
+      "target": "Stendhal15",
+      "weight": 4175258
+    },
+    {
+      "source": "Stendhal9",
+      "target": "Stendhal16",
+      "weight": 3351237
+    },
+    {
+      "source": "Stendhal9",
+      "target": "Stendhal17",
+      "weight": 1135582
+    },
+    {
+      "source": "Stendhal9",
+      "target": "Stendhal18",
+      "weight": 25499
+    },
+    {
+      "source": "Stendhal9",
+      "target": "Stendhal19",
+      "weight": 9435863
+    },
+    {
+      "source": "Stendhal10",
+      "target": "Stendhal11",
+      "weight": 9162988
+    },
+    {
+      "source": "Stendhal10",
+      "target": "Stendhal12",
+      "weight": 6177323
+    },
+    {
+      "source": "Stendhal10",
+      "target": "Stendhal13",
+      "weight": 12026008
+    },
+    {
+      "source": "Stendhal10",
+      "target": "Stendhal14",
+      "weight": 16280850
+    },
+    {
+      "source": "Stendhal10",
+      "target": "Stendhal15",
+      "weight": 23177227
+    },
+    {
+      "source": "Stendhal10",
+      "target": "Stendhal16",
+      "weight": 12310364
+    },
+    {
+      "source": "Stendhal10",
+      "target": "Stendhal17",
+      "weight": 6845630
+    },
+    {
+      "source": "Stendhal10",
+      "target": "Stendhal18",
+      "weight": 263721
+    },
+    {
+      "source": "Stendhal10",
+      "target": "Stendhal19",
+      "weight": 45321613
+    },
+    {
+      "source": "Stendhal11",
+      "target": "Stendhal12",
+      "weight": 3975393
+    },
+    {
+      "source": "Stendhal11",
+      "target": "Stendhal13",
+      "weight": 5970184
+    },
+    {
+      "source": "Stendhal11",
+      "target": "Stendhal14",
+      "weight": 9477966
+    },
+    {
+      "source": "Stendhal11",
+      "target": "Stendhal15",
+      "weight": 11403275
+    },
+    {
+      "source": "Stendhal11",
+      "target": "Stendhal16",
+      "weight": 5254396
+    },
+    {
+      "source": "Stendhal11",
+      "target": "Stendhal17",
+      "weight": 4024945
+    },
+    {
+      "source": "Stendhal11",
+      "target": "Stendhal18",
+      "weight": 248582
+    },
+    {
+      "source": "Stendhal11",
+      "target": "Stendhal19",
+      "weight": 24243213
+    },
+    {
+      "source": "Stendhal12",
+      "target": "Stendhal13",
+      "weight": 6233398
+    },
+    {
+      "source": "Stendhal12",
+      "target": "Stendhal14",
+      "weight": 8593078
+    },
+    {
+      "source": "Stendhal12",
+      "target": "Stendhal15",
+      "weight": 7042359
+    },
+    {
+      "source": "Stendhal12",
+      "target": "Stendhal16",
+      "weight": 7325058
+    },
+    {
+      "source": "Stendhal12",
+      "target": "Stendhal17",
+      "weight": 2318805
+    },
+    {
+      "source": "Stendhal12",
+      "target": "Stendhal18",
+      "weight": 197602
+    },
+    {
+      "source": "Stendhal12",
+      "target": "Stendhal19",
+      "weight": 16473056
+    },
+    {
+      "source": "Stendhal13",
+      "target": "Stendhal14",
+      "weight": 10987878
+    },
+    {
+      "source": "Stendhal13",
+      "target": "Stendhal15",
+      "weight": 41273023
+    },
+    {
+      "source": "Stendhal13",
+      "target": "Stendhal16",
+      "weight": 8034274
+    },
+    {
+      "source": "Stendhal13",
+      "target": "Stendhal17",
+      "weight": 4395014
+    },
+    {
+      "source": "Stendhal13",
+      "target": "Stendhal18",
+      "weight": 150567
+    },
+    {
+      "source": "Stendhal13",
+      "target": "Stendhal19",
+      "weight": 32089319
+    },
+    {
+      "source": "Stendhal14",
+      "target": "Stendhal15",
+      "weight": 21864410
+    },
+    {
+      "source": "Stendhal14",
+      "target": "Stendhal16",
+      "weight": 19026559
+    },
+    {
+      "source": "Stendhal14",
+      "target": "Stendhal17",
+      "weight": 7394088
+    },
+    {
+      "source": "Stendhal14",
+      "target": "Stendhal18",
+      "weight": 423651
+    },
+    {
+      "source": "Stendhal14",
+      "target": "Stendhal19",
+      "weight": 49186441
+    },
+    {
+      "source": "Stendhal15",
+      "target": "Stendhal16",
+      "weight": 271718265
+    },
+    {
+      "source": "Stendhal15",
+      "target": "Stendhal17",
+      "weight": 97952278
+    },
+    {
+      "source": "Stendhal15",
+      "target": "Stendhal18",
+      "weight": 646937
+    },
+    {
+      "source": "Stendhal15",
+      "target": "Stendhal19",
+      "weight": 272318302
+    },
+    {
+      "source": "Stendhal16",
+      "target": "Stendhal17",
+      "weight": 178906284
+    },
+    {
+      "source": "Stendhal16",
+      "target": "Stendhal18",
+      "weight": 677018
+    },
+    {
+      "source": "Stendhal16",
+      "target": "Stendhal19",
+      "weight": 479908636
+    },
+    {
+      "source": "Stendhal17",
+      "target": "Stendhal18",
+      "weight": 555972
+    },
+    {
+      "source": "Stendhal17",
+      "target": "Stendhal19",
+      "weight": 164873313
+    },
+    {
+      "source": "Stendhal18",
+      "target": "Stendhal19",
+      "weight": 769307
+    }
+  ]
+}
