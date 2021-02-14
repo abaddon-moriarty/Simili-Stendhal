@@ -1,0 +1,882 @@
+{
+  "nodes": [
+    { "id": "Texte 1", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=4682"},
+    { "id": "Texte 2", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=4681"},
+    { "id": "Texte 3", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=4665"},
+    { "id": "Texte 4", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=1181"},
+    { "id": "Texte 5", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=2148"},
+    { "id": "Texte 6", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=2150"},
+    { "id": "Texte 7", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=2149"},
+    { "id": "Texte 8", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=2151"},
+    { "id": "Texte 9", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=2152"},
+    { "id": "Texte 10", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=4398"},
+    { "id": "Texte 11", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=4400"},
+    { "id": "Texte 12", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=4402"},
+    { "id": "Texte 13", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=4404"},
+    { "id": "Texte 14", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=1887"},
+    { "id": "Texte 15", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=1182"},
+    { "id": "Texte 16", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=1886"},
+    { "id": "Texte 17", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=4406"},
+    { "id": "Texte 18", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=4653"},
+    { "id": "Texte 19", "lien" : "http://manuscrits-de-stendhal.org/permalien.php?id=4409"}
+  ],
+  "links": [
+    {
+      "source": "Texte1",
+      "target": "Texte2",
+      "weight": 3290
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte3",
+      "weight": 426517
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte4",
+      "weight": 139572
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte5",
+      "weight": 551845
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte6",
+      "weight": 68391
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte7",
+      "weight": 310102
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte8",
+      "weight": 168945
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte9",
+      "weight": 48924
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte10",
+      "weight": 124404
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte11",
+      "weight": 300620
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte14",
+      "weight": 61197
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte15",
+      "weight": 12548
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte16",
+      "weight": 220314
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte1",
+      "target": "Texte19",
+      "weight": 336729
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte3",
+      "weight": 6140
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte4",
+      "weight": 294
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte5",
+      "weight": 142861
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte6",
+      "weight": 174505
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte7",
+      "weight": 4796
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte8",
+      "weight": 4336
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte9",
+      "weight": 3371
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte10",
+      "weight": 588081
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte11",
+      "weight": 92482
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte14",
+      "weight": 457217
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte15",
+      "weight": 4641
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte16",
+      "weight": 2004
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte2",
+      "target": "Texte19",
+      "weight": 251034
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte4",
+      "weight": 464399
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte5",
+      "weight": 1320480
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte6",
+      "weight": 105684
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte7",
+      "weight": 917977
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte8",
+      "weight": 1157797
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte9",
+      "weight": 252732
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte5",
+      "weight": 287245
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte6",
+      "weight": 3058
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte7",
+      "weight": 740127
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte8",
+      "weight": 867527
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte9",
+      "weight": 1018
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte6",
+      "weight": 656987
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte7",
+      "weight": 1916314
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte8",
+      "weight": 1011579
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte9",
+      "weight": 833896
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte7",
+      "weight": 62548
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte8",
+      "weight": 595752
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte9",
+      "weight": 2132
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte8",
+      "weight": 1516074
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte9",
+      "weight": 542473
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte9",
+      "weight": 212469
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte10",
+      "weight": 7179
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte11",
+      "weight": 107813
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte14",
+      "weight": 465851
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte15",
+      "weight": 1142235
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte16",
+      "weight": 6754
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte3",
+      "target": "Texte19",
+      "weight": 1753945
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte10",
+      "weight": 2062
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte11",
+      "weight": 4199
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte14",
+      "weight": 6974
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte15",
+      "weight": 3323
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte16",
+      "weight": 140289
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte4",
+      "target": "Texte19",
+      "weight": 369662
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte10",
+      "weight": 66573
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte11",
+      "weight": 1664857
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte14",
+      "weight": 1469264
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte15",
+      "weight": 1993847
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte16",
+      "weight": 355596
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte5",
+      "target": "Texte19",
+      "weight": 3912511
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte10",
+      "weight": 295462
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte11",
+      "weight": 651357
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte14",
+      "weight": 230359
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte15",
+      "weight": 743822
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte16",
+      "weight": 5271
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte6",
+      "target": "Texte19",
+      "weight": 316381
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte10",
+      "weight": 1155309
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte11",
+      "weight": 125037
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte13",
+      "weight": 72
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte14",
+      "weight": 3408854
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte15",
+      "weight": 1067529
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte16",
+      "weight": 206189
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte18",
+      "weight": 72
+    },
+    {
+      "source": "Texte7",
+      "target": "Texte19",
+      "weight": 1027810
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte10",
+      "weight": 47030
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte11",
+      "weight": 477146
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte14",
+      "weight": 380999
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte15",
+      "weight": 3064391
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte16",
+      "weight": 36440
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte8",
+      "target": "Texte19",
+      "weight": 2315773
+    },
+    {
+      "source": "Texte9",
+      "target": "Texte10",
+      "weight": 71102
+    },
+    {
+      "source": "Texte9",
+      "target": "Texte11",
+      "weight": 10664
+    },
+    {
+      "source": "Texte9",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte9",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte9",
+      "target": "Texte14",
+      "weight": 447972
+    },
+    {
+      "source": "Texte9",
+      "target": "Texte15",
+      "weight": 14508
+    },
+    {
+      "source": "Texte9",
+      "target": "Texte16",
+      "weight": 3723
+    },
+    {
+      "source": "Texte9",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte9",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte9",
+      "target": "Texte19",
+      "weight": 243284
+    },
+    {
+      "source": "Texte10",
+      "target": "Texte11",
+      "weight": 486345
+    },
+    {
+      "source": "Texte10",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte10",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte10",
+      "target": "Texte14",
+      "weight": 317861
+    },
+    {
+      "source": "Texte10",
+      "target": "Texte15",
+      "weight": 3317072
+    },
+    {
+      "source": "Texte10",
+      "target": "Texte16",
+      "weight": 144259
+    },
+    {
+      "source": "Texte10",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte10",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte10",
+      "target": "Texte19",
+      "weight": 403321
+    },
+    {
+      "source": "Texte11",
+      "target": "Texte12",
+      "weight": 0
+    },
+    {
+      "source": "Texte11",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte11",
+      "target": "Texte14",
+      "weight": 243620
+    },
+    {
+      "source": "Texte11",
+      "target": "Texte15",
+      "weight": 2739526
+    },
+    {
+      "source": "Texte11",
+      "target": "Texte16",
+      "weight": 10530
+    },
+    {
+      "source": "Texte11",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte11",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte11",
+      "target": "Texte19",
+      "weight": 473050
+    },
+    {
+      "source": "Texte12",
+      "target": "Texte13",
+      "weight": 0
+    },
+    {
+      "source": "Texte12",
+      "target": "Texte14",
+      "weight": 0
+    },
+    {
+      "source": "Texte12",
+      "target": "Texte15",
+      "weight": 0
+    },
+    {
+      "source": "Texte12",
+      "target": "Texte16",
+      "weight": 0
+    },
+    {
+      "source": "Texte12",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte12",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte12",
+      "target": "Texte19",
+      "weight": 0
+    },
+    {
+      "source": "Texte13",
+      "target": "Texte14",
+      "weight": 0
+    },
+    {
+      "source": "Texte13",
+      "target": "Texte15",
+      "weight": 0
+    },
+    {
+      "source": "Texte13",
+      "target": "Texte16",
+      "weight": 0
+    },
+    {
+      "source": "Texte13",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte13",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte13",
+      "target": "Texte19",
+      "weight": 0
+    },
+    {
+      "source": "Texte14",
+      "target": "Texte15",
+      "weight": 211514
+    },
+    {
+      "source": "Texte14",
+      "target": "Texte16",
+      "weight": 455769
+    },
+    {
+      "source": "Texte14",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte14",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte14",
+      "target": "Texte19",
+      "weight": 461851
+    },
+    {
+      "source": "Texte15",
+      "target": "Texte16",
+      "weight": 56068718
+    },
+    {
+      "source": "Texte15",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte15",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte15",
+      "target": "Texte19",
+      "weight": 53735893
+    },
+    {
+      "source": "Texte16",
+      "target": "Texte17",
+      "weight": 0
+    },
+    {
+      "source": "Texte16",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte16",
+      "target": "Texte19",
+      "weight": 25869525
+    },
+    {
+      "source": "Texte17",
+      "target": "Texte18",
+      "weight": 0
+    },
+    {
+      "source": "Texte17",
+      "target": "Texte19",
+      "weight": 0
+    },
+    {
+      "source": "Texte18",
+      "target": "Texte19",
+      "weight": 0
+    }
+
+  ]
+}
+
