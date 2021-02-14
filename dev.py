@@ -10,12 +10,12 @@ from nltk.corpus import stopwords
 from nltk.probability import FreqDist
 import re
 import string
-
+import json
 
 """
 *****************************************************************************************************************************
-* fonction qui permet de se connecter à la base de donnée                                  								    *
-* elle prend en entrée, le nom d'utilisateur(str), le mot de passe(str) et le nom de la base de donnée(str)                 *
+* Cette fonction permet de se connecter à la base de donnée                                  							    *
+* elle prend en entrée, le nom d'utilisateur, le mot de passe et le nom de la base de donnée          				        *
 * elle retourne le nom de les variables conn et mycursor pour pouvoir faire des requêtes à la base de donnée                *
 * le champ mot de passe peut être vide (notamment en localhost où il n'est pas nécéssaire)                                  *
 * le nom de la base de donnée peut lui aussi être vide, nous utilisons d'ailleurs cet aspect, pour créer la base de donnée. *
@@ -38,13 +38,15 @@ def connection(username, password, database):
 conn, mycursor = connection("root", "", "")
 
 
-
 """
-************************************************************************************
-* fonction qui créé la base de donnée et la table si elles n'existent pas déjà.    *
-* elle prend en entrée les variables conn, mycursor, et tableName (str)            *
-* elle retourne True(bool) or False(bool) ce qui active(?) ou non le reste du code *
-************************************************************************************
+***************************************************************************************************************
+* fonction qui créé la base de donnée et la table "textes" et "token" si elles n'existent pas déjà.           *
+* elle prend en entrée les variables conn, mycursor, tableName, la liste des colonnes pour vérifier           * 
+* que la table corresponde si elle existe ainsi que la query sql pour créer la table                          *
+* elle retourne un booleen True s'il n'y a pas eu de problèmes, cela permet de continuer sur le reste du code *
+***************************************************************************************************************
+Le code est répété 2 fois car nous n'avons pas réussi à utiliser les placeholder sur les query mycursor.
+Ce n'est pas le plus optimal mais cela fonctionne.
 """
 
 def create(conn, mycursor, tableName, listecol, sqlQuery): 
@@ -54,13 +56,14 @@ def create(conn, mycursor, tableName, listecol, sqlQuery):
 
 	#vérifie la liste des tables
 	mycursor.execute("SHOW TABLES")
-	exx = mycursor.fetchall()
-	# print(exx)
+	tables = mycursor.fetchall()
+	
+
 	if tableName == 'textes':
-		if ('textes',) in exx:
+		if ('textes',) in tables:
 			# Si la table textes existe déjà il récupère le nom des colonnes
 			mycursor.execute("SELECT * from textes")
-			exx = mycursor.fetchall()
+			cols = mycursor.fetchall()
 			num_fields = len(mycursor.description)
 			field_names = [i[0] for i in mycursor.description]
 
@@ -72,17 +75,16 @@ def create(conn, mycursor, tableName, listecol, sqlQuery):
 				print('Vous avez déjà une table du nom de', tableName, 'avec des colonnes différentes, vérifiez ces informations et changez le nom de la table')
 				# print('AAAAAH COME ON /§§§§§§§§§§§§§§§§v DYTYUYFRSJYUFRTSSRTFGHYUI')
 				return False
-
-		# si la table n'existe pas alors on la créé
 		else: 
-			# print('table does not exists')
+			# si elle n'existe pas on exécute alors la query pour créer la table
 			mycursor.execute(sqlQuery)
 			return True
+
 	elif tableName == 'tokens':
-		if ('tokens',) in exx:
+		if ('tokens',) in tables:
 			# Si la table textes existe déjà il récupère le nom des colonnes
 			mycursor.execute("SELECT * from tokens")
-			exx = mycursor.fetchall()
+			cols = mycursor.fetchall()
 			num_fields = len(mycursor.description)
 			field_names = [i[0] for i in mycursor.description]
 
@@ -94,29 +96,34 @@ def create(conn, mycursor, tableName, listecol, sqlQuery):
 				print('Vous avez déjà une table du nom de', tableName, 'avec des colonnes différentes, vérifiez ces informations et changez le nom de la table')
 				# print('AAAAAH COME ON /§§§§§§§§§§§§§§§§v DYTYUYFRSJYUFRTSSRTFGHYUI')
 				return False
-
-		# si la table n'existe pas alors on la créé
 		else: 
-			# print('table does not exists')
+			# si elle n'existe pas on exécute alors la query pour créer la table
 			mycursor.execute(sqlQuery)
 			return True
 
 
-
-#Fonction qui ajoute un backslash avant chaque apostrophe ou guillemet pour aider à l'upload
-#boolTitre est un boolean, s'il ce qui passe dans la fonction est un titre ou un le texte
+"""
+***********************************************************************************************
+* Cette fonction ajoute des avant chaque apostrophe ou guillemet d'un texte donné.            *
+* Nous en avons besoin pour mettre à jour les textes sur la base de donnée                    *
+* Elle prend en entrée, le texte(chaine) et un boolTitre(bolléen)                             *
+* Elle retourne le texte(chaine) modifié.                                                     *
+***********************************************************************************************
+"""
 def backslashs(texte, boolTitre):
+	# compte le nombre de guillemets et apostrophes, pour l'ajouter à la longeur du texte
+	# sans quoi la boucle se fini prématurément.
 	a = texte.count("'")
 	b = texte.count('"')
 	c = a + b
 	sub = texte[-c:]
 
 
-	#vérifie s'il y a un appostrophe ou un guillemet que si c'est le texte
+	
+	# on regarde s'il y a un appostrophe dans la longeur ajoutée par le nombre de guillemets et d'apostrophes
+	# si cette distinction n'est pas faite, tous les textes ne peuvent pas être mis à jour
+	# boolTitre permet d'exclure les titres de la première boucle
 	if "'" in sub or '"' in sub and not boolTitre:
-		# print(sub, '\n', "il y a un truc")
-		'''compte le nombre d'occurence d'appostrophes et de guillemet, pour ajouter à la longeur de la boucle
-		autrement la boucle s'arrête avant la fin réelle du texte auquel on aura ajouté des \''''
 		a = texte.count("'")
 		b = texte.count('"')
 		longeur = len(texte) + a + b
@@ -125,9 +132,7 @@ def backslashs(texte, boolTitre):
 				j = i-1
 				if texte[j] != "\\":
 					texte = texte[:i] + "\\" + texte[i:]
-		# print(texte)
 	elif "'" not in sub or '"' not in sub:
-		# print("il n'y a rien")
 		for i in range(0, len(texte)):
 			if texte[i] == "'" or texte[i] == '"':
 				j = i-1
@@ -135,6 +140,11 @@ def backslashs(texte, boolTitre):
 					texte = texte[:i] + "\\" + texte[i:]
 	return texte
 
+
+"""
+Elle prend en entrée le nom du fichier à analyser
+Elle retourne statement, le dictionnaire contenant les informations extraites des textes
+"""
 
 
 def identification(fileName):
@@ -214,7 +224,16 @@ def identification(fileName):
 	return statement
 
 
-
+"""
+*************************************************************************************************
+* Cette fonction parcours la liste des fichiers créés par scriptCut.py	 						*
+* Elle prend en entrée handle, le chemin d'accès vers le dossier contenant tous les textes		*
+* Elle appelle automatiquement la fonction identification pour chaque élément dans le dossier	*
+* ainsi que la fonction uploadBdd pour mettre à jour la base de donnée avec les informations 	*
+* extraites par identification()																*
+* Elle ne retourne rien																			*
+*************************************************************************************************
+"""
 #parcours chaque fichier xml de la dir et applique la fonction identification()
 def parcoursXml(handle):
 	fileList = []
@@ -235,11 +254,19 @@ def parcoursXml(handle):
 		# exportTxt(temp, name)
 	return
 
-# fonction qui upload les informatios récupérées par identification() à la base de donnée
+
+"""
+*********************************************************************************************************
+* Cette fonction met à jour la base de donnée à partir des informations de la fonction identification()	*	
+* Elle prend en entrée statement qui est un dictionnaire contenant les informations sur le texte et 	*	
+* table une chaine qui contient le nom de la table à modifier.											*
+* Elle retourne une chaine indiquant le nombre de lignes insérées s'il n'y a eu aucune erreur.			*
+*********************************************************************************************************
+"""
 def uploadBdd(statement, table):
 
 	######################################################################################################
-	######## essaie de vérifier avant d'isérer mais je n'arrive pas à faire rentrer une variable #########
+	######## essaie de vérifier avant d'insérer mais je n'arrive pas à faire rentrer une variable #########
 	## lienxml = statement['nomxml'] 	                                                                ##
 	## sql = """INSERT INTO tokens (%s) SELECT * FROM (SELECT %s) as temp WHERE NOT EXISTS 			    ##
 	## (SELECT nomxml FROM tokens WHERE nomxml = " +  lienxml + ") LIMIT 1;""" % (columns, values)      ##
@@ -256,12 +283,18 @@ def uploadBdd(statement, table):
 	retour = mycursor.rowcount, "record inserted"
 	return retour
 
-def exportTxt(statement, handle):
-		name = handle[handle.rindex('Stendhal'): handle.index('.xml')]
-		name = 'C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\try2\\'+ name +'.txt'
-		outfile = open(name, 'w', encoding='utf-8')
-		outfile.write(statement['texte'])
-		outfile.close()
+
+
+"""
+************************************************************************************
+* Cette fonction supprime les mots outils de la liste des mots du texte 		   *
+* Elle prend en entrée nltkList qui est une liste contenant tous les mots du texte * 
+* et handle qui est une chaine contenant la liste des mots outils à enlever.       *
+* Elle retourne nltkList, liste contenant les mots 'filtrés'                       *
+************************************************************************************
+nous avons choisi de stoquer la liste des mots outils pour une facilité d'accès,
+il est possible de cette manière de changer de liste entièrement au besoin
+"""
 
 french_stopwords = set(stopwords.words('french'))
 
@@ -279,6 +312,7 @@ def stopwords(nltkList, handle):
 
 
 # fonction qui vérifie que l'eNtrée ne fasse pas déjà partie de la base de donnée
+# NE FONCTIONNE PAS
 # def verifDoublons(statement):
 # 	sql = "SELECT * FROM `textes` WHERE `cote` = %s AND `nb_ordre` = %s AND `volume` = %s AND `type` = %s AND `page` = %s AND `titre` = %s AND `texte` = %s;" % (statement['cote'], statement['nb_ordre'], statement['page'], statement['volume'], statement['type'], statement['titre'], statement['texte'])
 # 	mycursor.execute(sql)
@@ -291,7 +325,7 @@ def stopwords(nltkList, handle):
 
 
 
-
+# Appel de la fonction create pour la table textes
 textCol = ['id', 'nomxml', 'cote', 'nb_ordre', 'page', 'volume', 'type', 'titre', 'permalien', 'texte']
 sql = """CREATE TABLE textes 
 			(id int PRIMARY KEY NOT NULL AUTO_INCREMENT, 
@@ -307,22 +341,19 @@ sql = """CREATE TABLE textes
 aOk = create(conn, mycursor, 'textes', textCol, sql)
 
 #si la fonction create n'a pas eu d'erreur alors on commence le travail sur les textes
-#Je n'ai pas réussis à n'upload que si la ligne n'existe pas je me donc l'appel en commentaire
 if aOk is True :
 
 	#récupère tous les document ".xml" dans le dossier
 	############ changer le handle pour adapter à l'ordinateur ###########
-	handle = "C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\export"#\\Stendhal1014.xml"
+	handle = "C:\\Users\\munau\\OneDrive\\Documents\\SimiliStendhal\\export"
+
+	################################################################### ATTENTION ###################################################################
+	# Si la mise à jour s'est déroulé sans erreur, mettre cette ligne en commentaire  pour ne pas télécharger deux fois les mêmes
 	parcoursXml(handle)
-	# prob = identification(handle)
-	# print(prob)
-	# print(prob):
-	# # prob['texte'] = backslashs(prob['texte'])
-	# print(prob['texte'])
-else:
-	print("nope")
+	################################################################### ATTENTION ###################################################################
 
 
+# Appel de la fonction create pour la table tokens
 tokCol = ['tokenId', 'token', 'textesList', 'useTotal']
 sql = """CREATE TABLE `simili_stendhal`.`tokens` 
 	(`tokenId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT , 
@@ -331,34 +362,32 @@ sql = """CREATE TABLE `simili_stendhal`.`tokens`
 	`useTotal` INT NOT NULL)"""
 bOk = create(conn, mycursor, 'tokens', tokCol, sql)
 
-#si la table token à bien été créée
+#si la table tokens à bien été créée alors on commence le travail sur les tokens
 if bOk is True:
 
-	# on récupère chaque texte dans la base de donnée
-	mycursor.execute("SELECT id, texte FROM simili_stendhal.textes") # WHERE id <= 2")
+	# on récupère chaque texte de la base de donnée
+	mycursor.execute("SELECT id, texte FROM simili_stendhal.textes")
 	txtList = mycursor.fetchall()
 	conn, mycursor = connection("root", "", "simili_stendhal")
 
 	vocab = {}
 
+	# parcours les textes de la requête
 	for texte in txtList:
 		surface = texte[1]
 		surface = surface.lower()
 		surface = backslashs(surface, True)
-		# print(surface, '\n')
 
 		#une fois le texte récupéré on le tokenise grâce à la librairie nltk
 		words = word_tokenize(surface, language="french")
+
 		# customStopWord est une liste de stopword à compléter au fur et à mesure des versions
-		#puisque Stendhal écrit avec des abréviations ou une graphie différente 
+		# puisque Stendhal écrit avec des abréviations ou une graphie différente 
 		# ce n'est pas toujours reconnu par les analyseur, nous avons donc préféré une liste définie de termes.
 		customStopWord = stopwords(french_stopwords, "C:\\Users\\munau\\OneDrive\\Documents\\GitHub\\Simili-Stendhal\\customStopWord.txt")
-		# print(customStopWord)
-		# print(words, '\n')
 
 		#on enlève alors les stopwords et la ponctuation
-		punkt = ["!", "?", ".", "-", '–', "_", ",", ";", ":", "’", "]", "[", ")", "(", "&", "%", "+", "«", "»", "=", ""]
-		# filtre = [word for word in words if word not in customStopWord and word not in punkt]
+		punkt = ["!", "?", ".", "…", "-", "–", "—", "—", "—", "_", ",", ";", ":", "’", "`", "{", "}", "]", "[", ")", "(", "&", "%", "+", "«", "»", "=", "*", "|", "≠", "±", "§", ]
 		filtre = []
 
 		# boucle qui vérifie, pour chaque mot, qu'il ne fasse pas partie des stopwords ou de la ponctuation
@@ -372,12 +401,8 @@ if bOk is True:
 					word = word.replace('\\', '')
 				filtre.append(word)
 
-		# print(filtre, '\n')
 
-		###########################################
-		#calcul la fréquence d'un mot dans la page#
-		###########################################
-
+		# on calcule la fréquence des mots 
 		tk = FreqDist()
 		# ne calcule que les mots filtrés (hors stop words)
 		for word in filtre:
@@ -385,50 +410,34 @@ if bOk is True:
 		
 		# ressort un tuple contenant le mot et le nombre de fois où il apparait dans le texte
 		for values in tk.items():
-			# print(values)
 			mot = values[0]
 			mot = backslashs(mot, False)
+			mot = mot.rstrip().lstrip()
 			freq = values[1]
 			freK = texte[0], 'nb:', freq
 			freK = backslashs(str(freK), False)
-			#si le mot ne fait pas encore partie du dictionnaire
-			if mot not in vocab:
-				vocab[mot] = {
-				'tokenId': '', 
-				'token': mot,
-				'useTotal': freq,
-				'textesList': freK,
-				}
-			else : #si le mot fait déjà partie du dictionnaire
-				vocab[mot]['textesList'] = vocab[mot]['textesList'] + freK
-				vocab[mot]['useTotal'] = vocab[mot]['useTotal'] + freq
-				# print('in')
-			# print(vocab[mot])
-
+			#si le mot ne fait pas encore partie du dictionnaire on l'y ajoute
+			if mot != "":
+				if mot not in vocab:
+					vocab[mot] = {
+					'tokenId': '', 
+					'token': mot,
+					'useTotal': freq,
+					'textesList': freK,
+					}
+				else : #si le mot fait déjà partie du dictionnaire on met à jour, les textes où il apparait et sa fréquence
+					vocab[mot]['textesList'] = vocab[mot]['textesList'] + freK
+					vocab[mot]['useTotal'] = vocab[mot]['useTotal'] + freq
 	
 
-
-	# for item in vocab.items():
+	#transforme en chaine la liste des textes car on ne peut pas intégrer de tableau dans la base de donnée
+	# met à jour la table tokens 
+	for item, info in vocab.items():
 		vocab[mot]['textesList'] = str(vocab[mot]['textesList'])
-		# vocab[mot]['textesList'] = backslashs(vocab[mot]['textesList'], False)
-		# print(item['textesList'])
-
-		# sql = "INSERT INTO `tokens`(`token`, `useTotal`) VALUES (%s,%s)" % (vocab[mot]['token'], vocab[mot]['useTotal'])
-		# mycursor.execute(sql)
-		# conn.commit()
-		# for row in mycursor.fetchall():
-		# 	print(row)
-		# print(mycursor.rowcount, "record inserted")
-
-	for item, info  in vocab.items():
-		# print(info)
 		uploadBdd(info, 'simili_stendhal.tokens')
 
 else:
 	print('problème avec la création de la table tokens')
-
-
-
 
 # <>
 
