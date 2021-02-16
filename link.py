@@ -174,6 +174,8 @@ with open("recapitulatifPoids.json", "w") as f:
                 p, dic = poids(str(i), str(j))
                 # On tri les valeurs de dic par ordre décroisant et on garde les 3 premières.
                 dic = sorted(dic.items(), key=lambda z: z[1], reverse=True)[:3]
+                # On enlève l'apostrophe qui provoque une erreur pour le réseau graphique.
+                dic = str(dic).replace("qu'", "qu ")
 
                 if p != 0:
                     if i == 19 and j == 20:
