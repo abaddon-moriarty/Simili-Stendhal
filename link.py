@@ -1,5 +1,4 @@
 import mysql.connector
-import spacy
 import time
 
 start_time = time.time()
