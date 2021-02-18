@@ -1,0 +1,52 @@
+Rendu Final
+
+
+Fichier contenu dans le zip
+***************************
+
+Les scripts: scriptCut.py, link.py, recherche.py, delete.py, dev.py
+Les ressources pour les bases de données: Stendhal.1487945865.TEI.xml, jdm-cleaned_20201112.sql
+Liste de termes à compléter selon les recherches: customStopWords.txt
+Exemple de liste de sortie: recapitulatifPoids.json
+
+
+
+Documentation
+*************
+
+Pré-requis:
+Pour utiliser les scripts correctement, il faudra:
+- Python 3.6 ou supérieur
+- MySQL
+
+1. Dans un premier, il est nécessaire d’avoir installé une version de Python 3.6 au minimum pour pouvoir manipuler les fichiers Python ainsi que MySQL pour pouvoir accéder aux bases de données. Il faut aussi importer la base de données jdm-cleaned_20201112.sql avec MySQL fourni dans le zip. Nous avons utilisé Python 3.8 et MySQL version 8.0
+
+Avant d’utiliser les scripts, vous devez installer les librairies présentes dans le fichier requirements.txt, vous pouvez le faire automatiquement en lançant la ligne dans votre invite de commande: $ pip install -r requirements.txt
+
+Nous avons mis une version de la base de données jdm nettoyé des mots grammaticaux et de certains caractères dans le zip, mais si l’on veut la nettoyer soi-même, on met à disposition le script delete.py qui peut le faire. Cependant, le temps de traitement étant extrêmement long, nous vous conseillons de ne pas le faire.
+
+
+-----------------------------------------------------------
+
+2. Ensuite, on lance le script python « ScriptCut.py » pour découper le fichier xml au format TEI (ici, Stendhal.1487945865.TEI.xml) en chaque page. Comme le fichier des manuscrits de stendhal est assez conséquent, on en extrait 2 461 fichiers xml contenant les informations, les textes et les balises pour chaque page.
+
+-----------------------------------------------------------
+
+3. On construit la base de données simili-stendhal en lançant le script dev.py, si elle n’existe pas déjà, si vous avez déjà une base de donnée à ce nom, elle recherchera les tables ‘textes’ et ‘tokens’ si vous avez des tables portant ce nom là et contenant des colonnes et informations différentes, le script ne pourra pas aller plus loin, merci de renommer vos tables. 
+Avant de lancer pour la première fois le script, vous devez rentrer vos identifiants MySQL, s’ils sont différents de ceux installés: host:“localhost”,  username: “root”, password: “”.
+Vous pouvez modifier le host ligne 27 et username et password  ligne 38.
+Ligne 348: mettez le chemin vers le dossier contenant la sortie de scriptCut.py, ces fichiers doivent être dans un dossier à part. 
+Vous pouvez alors lancer le script pour la première fois. S’il s’est déroulé sans erreurs, nous vous conseillons de mettre en commentaire les lignes 352 et les lignes 435 à 437 qui lancent la mise à jour des tables dans la base de données, de cette manière si vous relancez le script par inadvertance, vous ne dupliquerez pas les entrées des tables. Si vous souhaitez compléter la liste des mots à enlever du corpus, vous pouvez les ajouter au document “customStopWords.txt”, en écrivant un mot par ligne à la suite de ceux déjà écrits.
+
+-------------------------------------------------------------
+
+4. Si l’on souhaite voir l’ensemble du réseau graphiquement avec les fichiers qui sont relié entre eux par des liens en fonction de la proximité du sujet du texte, on va d’abord modifier le script python « link.py » en y insérant son mot de passe pour se connecter aux bases de données sur les lignes prévu à cet effet, puis lancer le script « link.py » qui va nous sortir un fichier au format json avec l’ensemble des nœuds et des liens. Le traitement étant long (environ 3h pour 20 fichiers), nous conseillons d’utiliser le fichier déjà fourni « recapitulatifPoids.json » pour gagner du temps, il récapitule l’ensemble des poids des liens entre les 20 premiers feuillets de Stendhal et il sera utilisé pour obtenir une visualisation graphique. Dans le cas où l’on veut vraiment refaire l’analyse pour plus ou moins de fichiers, il faut penser à modifier les ranges des boucles aux lignes 161, 162, 169, 170 et 180.
+
+-------------------------------------------------------------
+
+5. Si l’on souhaite simplement faire une recherche par mot-clé et voir les textes en rapport avec ce mot-clé, il faut lancer le script « recherche.py » en y ajoutant son mot de passe de connexion à la base de données. La console va nous demander quel mot-clé choisir, après avoir écrit le mot-clé, la console va nous donner en sortie les textes ainsi que le poids du texte par rapport au mot-clé rangé en ordre décroissant. Le poids minimum affiché est réglé sur 100, il est possible de modifier la ligne 117 pour avoir une limite plus ou moins grande.
+
+-------------------------------------------------------------
+
+6. Pour visualiser le réseau graphique il faut rentrer le fichier json obtenu par le script link.py sur le site observablehq.com que nous avons utilisé pour coder la représentation avec d3.js. Le fichier que nous avons fourni dans le zip est celui utilisé sur la page, si vous voulez le changer vous pouvez le remplacer à la ligne suivante data.
+Vous pouvez y accéder à partir du graphique en haut à droite, en cliquant sur data.
