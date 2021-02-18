@@ -40,12 +40,12 @@ conn, mycursor = connection("root", "", "")
 
 """
 ***************************************************************************************************************
-* fonction qui créé la base de donnée et la table "textes" et "token" si elles n'existent pas déjà.           *
+* fonction qui créé la base de donnée et la table "textes" et "tokens" si elles n'existent pas déjà.          *
 * elle prend en entrée les variables conn, mycursor, tableName, la liste des colonnes pour vérifier           * 
 * que la table corresponde si elle existe ainsi que la query sql pour créer la table                          *
 * elle retourne un booleen True s'il n'y a pas eu de problèmes, cela permet de continuer sur le reste du code *
 ***************************************************************************************************************
-Le code est répété 2 fois car nous n'avons pas réussi à utiliser les placeholder sur les query mycursor.
+Le code est répété 2 fois car nous n'avons pas réussi à utiliser les placeholder sur les query mycursor sur cette partie du code.
 Ce n'est pas le plus optimal mais cela fonctionne.
 """
 
@@ -142,8 +142,12 @@ def backslashs(texte, boolTitre):
 
 
 """
-Elle prend en entrée le nom du fichier à analyser
-Elle retourne statement, le dictionnaire contenant les informations extraites des textes
+**************************************************************************************************
+* Cette fonction récupère le fichier xml et recherche à l'interieur les balises nécéssaires pour *
+* compléter la base de donnée.																	 *
+* Elle pre fichnd en entrée le nom du fichier à analyser 										 *
+* Elle retourne statement, le dictionnaire contenant les informations extraites des textes 		 *
+**************************************************************************************************
 """
 
 
@@ -151,7 +155,7 @@ def identification(fileName):
 	sauce = open(fileName, encoding='utf-8')
 	soup = bs.BeautifulSoup(sauce, 'lxml', from_encoding="utf-8")
 
-	################### RECUPERER IDENTIFICATION #################
+	# liste des colonnes de textes
 	statement = {'nomxml': '',
 	'cote': '', 
 	'nb_ordre': '', 
@@ -173,13 +177,17 @@ def identification(fileName):
 			statement['volume'] = line.text
 	statement['type'] = soup.msdesc.get('type')
 
+							# Récupère le permalien
+
 	lien = soup.ref
 	permalien = lien.get('target')
 
-	#vérification au cas où il y ait plusieurs lie ns
+	#vérification au cas où il y ait plusieurs liens
 	handle = "http://manuscrits-de-stendhal.org/permalien.php"
 	if handle in permalien:
 		statement['permalien'] = permalien
+
+							# Récupère le texte
 
 	#compte le nombre de balises surfaces
 	surfCount = len(soup.find_all('surface'))
@@ -194,24 +202,22 @@ def identification(fileName):
 			statement['texte'] += paragraph.text
 
 
-	#on retrouve les \n quand on print(statement)
-	#mais ils disparaissent quand on vise statement['text']
-	#donc tout va bien
 
 	#permet d'enlever toutes les tabulations retours à la ligne et espace inutiles.
+	# on met aussi le texte en minuscules, pour éviter d'avoir plusieurs entrée pour chaque mots, simplement dû aux majuscules
 	statement['texte'] = statement['texte'].replace('\n', '')
 	statement['texte'] = statement['texte'].replace('\t', '')
 	statement['texte'] = statement['texte'].replace('#', '')
 	statement['texte'] = statement['texte'].lower()
 
-	# print(statement['texte'])
 	while "  " in statement['texte']:
 		statement['texte'] = statement['texte'].replace("  ", " ")
 
 	statement['texte'] = backslashs(statement['texte'], False)
-	# for item in statement['texte']:
-		# print(item, '\n')
 
+
+							# Récupère le titre
+							
 	for line in soup.find_all('textdesc'):
 		if line.get('n') == 'corpus':
 			statement['titre'] += line.text
